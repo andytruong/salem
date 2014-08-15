@@ -30,7 +30,6 @@ class Application
 
         // App configuration
         $config = require $this->app_root . '/' . ltrim($config_file, '/');
-
         if (!is_array($config)) {
             throw new \RuntimeException('Configuration must be an array.');
         }
