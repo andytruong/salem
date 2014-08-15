@@ -1,0 +1,6 @@
+.idea
+nbproject
+vendor
+files/*
+.elasticbeanstalk/
+resources/doc/phpdoc-cache*
