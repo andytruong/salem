@@ -1,0 +1,22 @@
+{
+    "name": "andytruong/salem",
+    "description": "Tiny web application framework",
+    "keywords": ["api", "tiny", "framework"],
+    "license": "MIT",
+    "author": [
+        {
+            "name": "Andy Truong",
+            "email": "thehongtt@gmail.com",
+            "homepage": "http://v3k.net/",
+            "role": "Lead Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "AndyTruong\\Salem\\": "src/"
+        }
+    }
+}
