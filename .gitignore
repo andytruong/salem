@@ -1,7 +1,8 @@
 .idea
 nbproject
-vendor
+config/*
 files/*
+vendor/*
 .elasticbeanstalk/
 resources/doc/phpdoc-cache*
 resources/coverage/*
