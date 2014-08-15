@@ -5,5 +5,6 @@ namespace AndyTruong\Salem;
 class Application
 {
 
-    use \AndyTruong\Salem\Application\ORMAwareApplication;
+    use \AndyTruong\Salem\Application\ORMAwareApplication,
+        \AndyTruong\Salem\Application\RouteAwareApplication;
 }
