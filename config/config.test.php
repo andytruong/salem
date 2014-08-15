@@ -10,4 +10,4 @@ $config['database']['default'] = [
     'charset' => 'UTF8',
 ];
 
-return $conf;
+return $config;
