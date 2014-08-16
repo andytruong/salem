@@ -8,19 +8,26 @@ ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
 ini_set('opcache.revalidate_freq', '1');
 
-// -------
+// ---------------------
 // Basic application config
-// -------
+// ---------------------
 $config = ['mode' => 'dev', 'debug' => false];
 
-// -------
+// ---------------------
 // Basic auth
-// -------
+// ---------------------
 $config['basic_auth'] = ['username' => 'go', 'password' => 'go'];
 
-/**
- * Database connection
- */
+// ---------------------
+// Logger
+// ---------------------
+$config['logger'] = function() {
+    return new \Psr\Log\NullLogger();
+};
+
+// ---------------------
+// Database connection
+// ---------------------
 if (isset($_SERVER['RDS_HOSTNAME'])) {
     $dbhost = $_SERVER['RDS_HOSTNAME'];
     $dbport = $_SERVER['RDS_PORT'];

@@ -27,4 +27,20 @@ class AppTest extends ApplicationTestCase
         $this->assertGreaterThan(0, $obj->getId());
     }
 
+    /**
+     * @group logger
+     */
+    public function testLogger()
+    {
+        $logger = $this->getMock('Psr\Log\AbstractLogger');
+        $this->getApplication()->setLogger($logger);
+        $this->assertInstanceOf('Psr\Log\LoggerInterface', $this->getApplication()->getLogger());
+
+        $logger
+            ->expects($this->once())
+            ->method('info')
+            ->with('Testing…');
+
+        $this->getApplication()->getLogger()->info('Testing…');
+    }
 }

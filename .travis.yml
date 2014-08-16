@@ -8,11 +8,13 @@ php:
 
 matrix:
     allow_failures:
-        - php: hhvm-nightly
+        - php: hhvm
     fast_finish: true
 
 before_script:
     - composer install --prefer-source
+    - touch files/salemapp.test.sqlite
+    - chmod a+w files/salemapp.test.sqlite
 
 script: phpunit --coverage-text
 
