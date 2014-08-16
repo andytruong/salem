@@ -2,16 +2,14 @@
 
 namespace AndyTruong\Salem;
 
-use Psr\Log\LoggerInterface;
+use AndyTruong\Salem\Application\BaseApplication;
 use RuntimeException;
 
-class Application
+class Application extends BaseApplication
 {
 
     use \AndyTruong\Salem\Application\ORMAwareApplication,
-        \AndyTruong\Salem\Application\RouteAwareApplication,
-        \AndyTruong\Salem\Application\ConfigAwareApplication,
-        \Psr\Log\LoggerAwareTrait;
+        \AndyTruong\Salem\Application\RouteAwareApplication;
 
     /** @var string Application's running mode. */
     protected $mode = 'production';
@@ -80,16 +78,6 @@ class Application
     public function getAppRootDir()
     {
         return $this->app_root;
-    }
-
-    /**
-     * Get logger.
-     *
-     * @return LoggerInterface
-     */
-    public function getLogger()
-    {
-        return $this->logger;
     }
 
 }

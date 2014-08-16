@@ -16,7 +16,8 @@
         "andytruong/event": "~0.1.0",
         "doctrine/cache": "~1.3.0",
         "doctrine/orm": "~2.4.0",
-        "psr/log": "~1.0.0"
+        "psr/log": "~1.0.0",
+        "andytruong/common": "0.1.*@dev"
     },
     "require-dev": {
         "luracast/restler": "~3.0.0"
