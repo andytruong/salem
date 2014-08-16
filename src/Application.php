@@ -2,12 +2,16 @@
 
 namespace AndyTruong\Salem;
 
+use Psr\Log\LoggerInterface;
+use RuntimeException;
+
 class Application
 {
 
     use \AndyTruong\Salem\Application\ORMAwareApplication,
         \AndyTruong\Salem\Application\RouteAwareApplication,
-        \AndyTruong\Salem\Application\ConfigAwareApplication;
+        \AndyTruong\Salem\Application\ConfigAwareApplication,
+        \Psr\Log\LoggerAwareTrait;
 
     /** @var string Application's running mode. */
     protected $mode = 'production';
@@ -31,7 +35,7 @@ class Application
         // App configuration
         $config = require $this->app_root . '/' . ltrim($config_file, '/');
         if (!is_array($config)) {
-            throw new \RuntimeException('Configuration must be an array.');
+            throw new RuntimeException('Configuration must be an array.');
         }
 
         if (isset($config['mode'])) {
@@ -76,6 +80,16 @@ class Application
     public function getAppRootDir()
     {
         return $this->app_root;
+    }
+
+    /**
+     * Get logger.
+     *
+     * @return LoggerInterface
+     */
+    public function getLogger()
+    {
+        return $this->logger;
     }
 
 }
