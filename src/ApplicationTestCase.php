@@ -2,6 +2,7 @@
 
 namespace AndyTruong\Salem;
 
+use Doctrine\DBAL\Types\Type;
 use Doctrine\ORM\Tools\SchemaTool;
 use PHPUnit_Framework_TestCase;
 
@@ -29,10 +30,24 @@ class ApplicationTestCase extends PHPUnit_Framework_TestCase
     public function getEntityManager()
     {
         static $ran = false;
+
         if (false === $ran) {
             $ran = true;
+
+            // Register new column type
+            if (!Type::hasType('country_code')) {
+                Type::addType('country_code', 'AndyTruong\\Salem\\Fixtures\\Entity\\Type\\CountryCodeType');
+                $this->getApplication()
+                    ->getEntitiyManager()
+                    ->getConnection()
+                    ->getDatabasePlatform()
+                    ->registerDoctrineTypeMapping('country_code', 'country_code');
+            }
+
+            // Setup database
             $this->setupDB();
         }
+
         return $this->getApplication()->getEntitiyManager();
     }
 
