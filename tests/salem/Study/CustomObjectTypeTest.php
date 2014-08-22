@@ -15,9 +15,7 @@ class CustomObjectTypeTest extends ApplicationTestCase
 
     public function testCRUD()
     {
-        Type::addType('country_code', 'AndyTruong\\Salem\\Fixtures\\Entity\\Type\\CountryCodeType');
         $em = $this->getEntityManager();
-        $em->getConnection()->getDatabasePlatform()->registerDoctrineTypeMapping('country_code', 'country_code');
 
         $country = new Country();
         $country->setName('Vietnam');
