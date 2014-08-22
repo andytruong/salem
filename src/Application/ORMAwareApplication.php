@@ -17,9 +17,7 @@ trait ORMAwareApplication
     protected $em;
 
     /**
-     * Entity directories.
-     *
-     * @var string[]
+     * @var string[] Entity directories.
      */
     protected $entity_dirs = [];
 
