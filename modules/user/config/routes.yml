@@ -1,0 +1,5 @@
+resources:
+    - AndyTruong\Salem\Modules\User\Controller\UserLoginController
+    - AndyTruong\Salem\Modules\User\Controller\UserJoinController
+    - AndyTruong\Salem\Modules\User\Controller\UserPasswordController
+    - AndyTruong\Salem\Modules\User\Controller\UserAdminController

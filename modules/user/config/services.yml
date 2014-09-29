@@ -1,0 +1,2 @@
+user.manager:
+    class: AndyTruong\Salem\Modules\User\UserManager
